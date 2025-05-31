@@ -1,0 +1,13 @@
+name = "Demo Workflow 1"
+
+[[steps]]
+type = "Shell"
+command = "echo 'Hello from rustom8'"
+
+[[steps]]
+type = "Wait"
+duration_ms = 3000
+
+[[steps]]
+type = "Print"
+message = "That's it! Waited for {{steps.2.output.Wait.duration}}"
