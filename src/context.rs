@@ -16,15 +16,15 @@ pub fn render_template(input: &str, ctx: &Context) -> anyhow::Result<String> {
 }
 
 impl Context {
-    pub fn set(&mut self, step_id: u16, output: StepOutput) {
-        self.steps.insert(step_id, StepContext { output });
+    pub fn set(&mut self, step_id: u16, output: &mut StepOutput) {
+        self.steps.insert(step_id, StepContext { output: output.clone() });
     }
     
     // pub fn get(&mut self, step_id: u16) -> StepContext {
     //     self.steps.get(&step_id).unwrap().clone()
     // }
 
-    pub fn set_step_output(&mut self, step_id: u16, output: StepOutput) {
-        self.steps.insert(step_id, StepContext { output });
+    pub fn set_step_output(&mut self, step_id: u16, output: &mut StepOutput) {
+        self.steps.insert(step_id, StepContext { output: output.clone() });
     }
 }

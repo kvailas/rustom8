@@ -4,6 +4,7 @@ use tracing_subscriber::fmt::SubscriberBuilder;
 use tracing_subscriber::EnvFilter;
 use std::fs::OpenOptions;
 
+// Add other log artifacts here as well 
 pub fn init_logger() -> anyhow::Result<()> {
     let log_file = OpenOptions::new()
         .create(true)
@@ -20,3 +21,5 @@ pub fn init_logger() -> anyhow::Result<()> {
 
     Ok(())
 }
+
+// todo: Add a macro / trait / static fn -> to log in a single line (ex. crate::logger::log(..)

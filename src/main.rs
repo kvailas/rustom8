@@ -3,6 +3,7 @@ mod types;
 mod engine;
 mod context;
 mod logger;
+mod steps;
 
 use clap::{Parser as ClapParser, Subcommand};
 use parser::load_workflow;

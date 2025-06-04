@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
+use anyhow::{ Result };
 
 // Main base types:
 
@@ -28,6 +29,10 @@ pub enum StepKind {
         message: String,
     },
     // Future: Http { url: String, method: String, ... }
+}
+
+pub trait StepExcecutor {
+    fn execute(&self, step_id: u16, step: &Step, ctx: &mut Context) -> Result<()>;
 }
 
 // Context related types:
