@@ -1,10 +1,10 @@
 use tracing::{debug, error};
 use crate::context::render_template;
-use crate::types::{Context, PrintOutput, Step, StepExcecutor, StepKind, StepOutput};
+use crate::types::{Context, PrintOutput, Step, StepExecutor, StepKind, StepOutput};
 
 pub struct PrintStep;
 
-impl StepExcecutor for PrintStep {
+impl StepExecutor for PrintStep {
     fn execute(&self, step_id: u16, step: &Step, ctx: &mut Context) -> anyhow::Result<()> {
         if let StepKind::Print { message } = &step.kind {
             

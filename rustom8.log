@@ -1,120 +1,30 @@
-[2m2025-06-05T12:53:48.133579Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running workflow Demo Workflow 1
-[2m2025-06-05T12:53:48.133941Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 1
-[2m2025-06-05T12:53:48.134067Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
-[2m2025-06-05T12:53:48.141913Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> "{\"Shell\":{\"command\":\"echo 'Hello from rustom8'\",\"stdout\":\"Hello from rustom8\\n\",\"stderr\":\"\",\"status\":0}}"
-[2m2025-06-05T12:53:48.142033Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 2
-[2m2025-06-05T12:53:48.142211Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\"Wait\":{\"duration\":3000,\"completed\":false}}"
-[2m2025-06-05T12:53:51.147459Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\"Wait\":{\"duration\":3000,\"completed\":false}}"
-[2m2025-06-05T12:53:51.148391Z[0m [3 4mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 3
-[2m2025-06-05T12:53:51.149042Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.2.output.Wait.duration}}"
-[2m2025-06-05T12:53:51.150320Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Wait"), Named("duration")], "steps.2.output.Wait.duration")))    
-[2m2025-06-05T12:53:51.150794Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> "{\"Print\":{\"message\":\"That's it! Waited for 3000\"}}"
-[2m2025-06-05T12:53:51.151053Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 4
-[2m2025-06-05T12:53:51.151232Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{steps.3.output.Print.message}}. Hurray!!"
-[2m2025-06-05T12:53:51.151692Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Print"), Named("message")], "steps.3.output.Print.message")))    
-[2m2025-06-05T12:53:51.151877Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> "{\"Print\":{\"message\":\"Previously, I printed: That&#x27;s it! Waited for 3000. Hurray!!\"}}"
-[2m2025-06-05T12:55:16.075099Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running workflow Demo Workflow 1
-[2m2025-06-05T12:55:16.075802Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 1
-[2m2025-06-05T12:55:16.076115Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
-[2m2025-06-05T12:55:16.090745Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> "{\n  \"Shell\": {\n    \"command\": \"echo 'Hello from rustom8'\",\n    \"stdout\": \"Hello from rustom8\\n\",\n    \"stderr\": \"\",\n    \"status\": 0\n  }\n}"
-[2m2025-06-05T12:55:16.090911Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 2
-[2m2025-06-05T12:55:16.091157Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\n  \"Wait\": {\n    \"duration\": 3000,\n    \"completed\": false\n  }\n}"
-[2m2025-06-05T12:55:19.096456Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\n  \"Wait\": {\n    \"duration\": 3000,\n    \"completed\": false\n  }\n}"
-[2m2025-06-05T12:55:19.097229Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 3
-[2m2025-06-05T12:55:19.097762Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.2.output.Wait.duration}}"
-[2m2025-06-05T12:55:19.098854Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Wait"), Named("duration")], "steps.2.output.Wait.duration")))    
-[2m2025-06-05T12:55:19.099487Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> "{\n  \"Print\": {\n    \"message\": \"That's it! Waited for 3000\"\n  }\n}"
-[2m2025-06-05T12:55:19.100014Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 4
-[2m2025-06-05T12:55:19.100396Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{steps.3.output.Print.message}}. Hurray!!"
-[2m2025-06-05T12:55:19.101304Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Print"), Named("message")], "steps.3.output.Print.message")))    
-[2m2025-06-05T12:55:19.101839Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> "{\n  \"Print\": {\n    \"message\": \"Previously, I printed: That&#x27;s it! Waited for 3000. Hurray!!\"\n  }\n}"
-[2m2025-06-05T12:55:45.546885Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running workflow Demo Workflow 1
-[2m2025-06-05T12:55:45.547117Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 1
-[2m2025-06-05T12:55:45.547213Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
-[2m2025-06-05T12:55:45.553684Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> "{\n  \"Shell\": {\n    \"command\": \"echo 'Hello from rustom8'\",\n    \"stdout\": \"Hello from rustom8\\n\",\n    \"stderr\": \"\",\n    \"status\": 0\n  }\n}"
-[2m2025-06-05T12:55:45.553824Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 2
-[2m2025-06-05T12:55:45.554014Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\n  \"Wait\": {\n    \"duration\": 3000,\n    \"completed\": false\n  }\n}"
-[2m2025-06-05T12:55:48.559354Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\n  \"Wait\": {\n    \"duration\": 3000,\n    \"completed\": false\n  }\n}"
-[2m2025-06-05T12:55:48.560472Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 3
-[2m2025-06-05T12:55:48.561495Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.2.output.Wait.duration}}"
-[2m2025-06-05T12:55:48.563022Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Wait"), Named("duration")], "steps.2.output.Wait.duration")))    
-[2m2025-06-05T12:55:48.564057Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> "{\n  \"Print\": {\n    \"message\": \"That's it! Waited for 3000\"\n  }\n}"
-[2m2025-06-05T12:55:48.564713Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 4
-[2m2025-06-05T12:55:48.565263Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{steps.3.output.Print.message}}. Hurray!!"
-[2m2025-06-05T12:55:48.566309Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Print"), Named("message")], "steps.3.output.Print.message")))    
-[2m2025-06-05T12:55:48.567039Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> "{\n  \"Print\": {\n    \"message\": \"Previously, I printed: That&#x27;s it! Waited for 3000. Hurray!!\"\n  }\n}"
-[2m2025-06-05T12:56:34.469029Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running workflow Demo Workflow 1
-[2m2025-06-05T12:56:34.469429Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 1
-[2m2025-06-05T12:56:34.469559Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
-[2m2025-06-05T12:56:34.477935Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> "{\n  \"Shell\": {\n    \"command\": \"echo 'Hello from rustom8'\",\n    \"stdout\": \"Hello from rustom8\\n\",\n    \"stderr\": \"\",\n    \"status\": 0\n  }\n}"
-[2m2025-06-05T12:56:34.478106Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 2
-[2m2025-06-05T12:56:34.478315Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\n  \"Wait\": {\n    \"duration\": 3000,\n    \"completed\": false\n  }\n}"
-[2m2025-06-05T12:56:37.483661Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\n  \"Wait\": {\n    \"duration\": 3000,\n    \"completed\": false\n  }\n}"
-[2m2025-06-05T12:56:37.484698Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 3
-[2m2025-06-05T12:56:37.485603Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.2.output.Wait.duration}}"
-[2m2025-06-05T12:56:37.487248Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Wait"), Named("duration")], "steps.2.output.Wait.duration")))    
-[2m2025-06-05T12:56:37.488239Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> "{\n  \"Print\": {\n    \"message\": \"That's it! Waited for 3000\"\n  }\n}"
-[2m2025-06-05T12:56:37.488772Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 4
-[2m2025-06-05T12:56:37.489147Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{steps.3.output.Print.message}}. Hurray!!"
-[2m2025-06-05T12:56:37.490093Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Print"), Named("message")], "steps.3.output.Print.message")))    
-[2m2025-06-05T12:56:37.491569Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> "{\n  \"Print\": {\n    \"message\": \"Previously, I printed: That&#x27;s it! Waited for 3000. Hurray!!\"\n  }\n}"
-[2m2025-06-05T12:57:00.286433Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running workflow Demo Workflow 1
-[2m2025-06-05T12:57:00.287117Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 1
-[2m2025-06-05T12:57:00.287464Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
-[2m2025-06-05T12:57:00.296848Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> "{\"Shell\":{\"command\":\"echo 'Hello from rustom8'\",\"stdout\":\"Hello from rustom8\\n\",\"stderr\":\"\",\"status\":0}}"
-[2m2025-06-05T12:57:00.297083Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 2
-[2m2025-06-05T12:57:00.297342Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\"Wait\":{\"duration\":3000,\"completed\":false}}"
-[2m2025-06-05T12:57:03.302551Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> "{\"Wait\":{\"duration\":3000,\"completed\":false}}"
-[2m2025-06-05T12:57:03.303376Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 3
-[2m2025-06-05T12:57:03.304084Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.2.output.Wait.duration}}"
-[2m2025-06-05T12:57:03.305327Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Wait"), Named("duration")], "steps.2.output.Wait.duration")))    
-[2m2025-06-05T12:57:03.306001Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> "{\"Print\":{\"message\":\"That's it! Waited for 3000\"}}"
-[2m2025-06-05T12:57:03.306757Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 4
-[2m2025-06-05T12:57:03.307520Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{steps.3.output.Print.message}}. Hurray!!"
-[2m2025-06-05T12:57:03.308548Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Print"), Named("message")], "steps.3.output.Print.message")))    
-[2m2025-06-05T12:57:03.309481Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> "{\"Print\":{\"message\":\"Previously, I printed: That&#x27;s it! Waited for 3000. Hurray!!\"}}"
-[2m2025-06-05T12:59:03.594535Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running workflow Demo Workflow 1
-[2m2025-06-05T12:59:03.594856Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 1
-[2m2025-06-05T12:59:03.594978Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
-[2m2025-06-05T12:59:03.606302Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> Object {"Shell": Object {"command": String("echo 'Hello from rustom8'"), "status": Number(0), "stderr": String(""), "stdout": String("Hello from rustom8\n")}}
-[2m2025-06-05T12:59:03.606470Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 2
-[2m2025-06-05T12:59:03.606649Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> Object {"Wait": Object {"completed": Bool(false), "duration": Number(3000)}}
-[2m2025-06-05T12:59:06.611953Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> Object {"Wait": Object {"completed": Bool(false), "duration": Number(3000)}}
-[2m2025-06-05T12:59:06.613162Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 3
-[2m2025-06-05T12:59:06.614002Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.2.output.Wait.duration}}"
-[2m2025-06-05T12:59:06.615564Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Wait"), Named("duration")], "steps.2.output.Wait.duration")))    
-[2m2025-06-05T12:59:06.616655Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> Object {"Print": Object {"message": String("That's it! Waited for 3000")}}
-[2m2025-06-05T12:59:06.617381Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 4
-[2m2025-06-05T12:59:06.617987Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{steps.3.output.Print.message}}. Hurray!!"
-[2m2025-06-05T12:59:06.618975Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Print"), Named("message")], "steps.3.output.Print.message")))    
-[2m2025-06-05T12:59:06.619694Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> Object {"Print": Object {"message": String("Previously, I printed: That&#x27;s it! Waited for 3000. Hurray!!")}}
-[2m2025-06-05T12:59:47.518713Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running workflow Demo Workflow 1
-[2m2025-06-05T12:59:47.519049Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 1
-[2m2025-06-05T12:59:47.519166Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
-[2m2025-06-05T12:59:47.526005Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> {"Shell":{"command":"echo 'Hello from rustom8'","status":0,"stderr":"","stdout":"Hello from rustom8\n"}}
-[2m2025-06-05T12:59:47.526186Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 2
-[2m2025-06-05T12:59:47.526383Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> {"Wait":{"completed":false,"duration":3000}}
-[2m2025-06-05T12:59:50.531781Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> {"Wait":{"completed":false,"duration":3000}}
-[2m2025-06-05T12:59:50.532858Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 3
-[2m2025-06-05T12:59:50.533711Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.2.output.Wait.duration}}"
-[2m2025-06-05T12:59:50.535342Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Wait"), Named("duration")], "steps.2.output.Wait.duration")))    
-[2m2025-06-05T12:59:50.536207Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> {"Print":{"message":"That's it! Waited for 3000"}}
-[2m2025-06-05T12:59:50.537167Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 4
-[2m2025-06-05T12:59:50.537649Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{steps.3.output.Print.message}}. Hurray!!"
-[2m2025-06-05T12:59:50.538700Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Print"), Named("message")], "steps.3.output.Print.message")))    
-[2m2025-06-05T12:59:50.539219Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> {"Print":{"message":"Previously, I printed: That&#x27;s it! Waited for 3000. Hurray!!"}}
-[2m2025-06-05T13:03:04.775611Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running workflow Demo Workflow 1
-[2m2025-06-05T13:03:04.776438Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 1
-[2m2025-06-05T13:03:04.776570Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
-[2m2025-06-05T13:03:04.791019Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> {"Shell":{"command":"echo 'Hello from rustom8'","status":0,"stderr":"","stdout":"Hello from rustom8\n"}}
-[2m2025-06-05T13:03:04.791225Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 2
-[2m2025-06-05T13:03:04.791427Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> {"Wait":{"completed":false,"duration":3000}}
-[2m2025-06-05T13:03:07.796779Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> {"Wait":{"completed":false,"duration":3000}}
-[2m2025-06-05T13:03:07.797457Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 3
-[2m2025-06-05T13:03:07.797953Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.2.output.Wait.duration}}"
-[2m2025-06-05T13:03:07.799102Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Wait"), Named("duration")], "steps.2.output.Wait.duration")))    
-[2m2025-06-05T13:03:07.799812Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> {"Print":{"message":"That's it! Waited for 3000"}}
-[2m2025-06-05T13:03:07.800238Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m Running step 4
-[2m2025-06-05T13:03:07.800579Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{{steps.3.output.Print.message}}}. Hurray!!"
-[2m2025-06-05T13:03:07.801173Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Print"), Named("message")], "steps.3.output.Print.message")))    
-[2m2025-06-05T13:03:07.801587Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> {"Print":{"message":"Previously, I printed: That's it! Waited for 3000. Hurray!!"}}
+[2m2025-06-05T14:03:31.044753Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN WORKFLOW: Demo Workflow 1
+[2m2025-06-05T14:03:31.045330Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN STEP: 1
+[2m2025-06-05T14:03:31.045483Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
+[2m2025-06-05T14:03:31.056666Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> {"Shell":{"command":"echo 'Hello from rustom8'","status":0,"stderr":"","stdout":"Hello from rustom8\n"}}
+[2m2025-06-05T14:03:31.056906Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN STEP: 2
+[2m2025-06-05T14:03:31.057110Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> {"Wait":{"completed":false,"duration":3000}}
+[2m2025-06-05T14:03:34.062324Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> {"Wait":{"completed":false,"duration":3000}}
+[2m2025-06-05T14:03:34.063204Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN STEP: 3
+[2m2025-06-05T14:03:34.063811Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.2.output.Wait.duration}}"
+[2m2025-06-05T14:03:34.065057Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Wait"), Named("duration")], "steps.2.output.Wait.duration")))    
+[2m2025-06-05T14:03:34.065732Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> {"Print":{"message":"That's it! Waited for 3000"}}
+[2m2025-06-05T14:03:34.066261Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN STEP: 4
+[2m2025-06-05T14:03:34.066773Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{{steps.3.output.Print.message}}}. Hurray!!"
+[2m2025-06-05T14:03:34.067811Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Print"), Named("message")], "steps.3.output.Print.message")))    
+[2m2025-06-05T14:03:34.068336Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> {"Print":{"message":"Previously, I printed: That's it! Waited for 3000. Hurray!!"}}
+[2m2025-06-05T14:09:13.976681Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN WORKFLOW: Demo Workflow 1
+[2m2025-06-05T14:09:13.977029Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN STEP: 1
+[2m2025-06-05T14:09:13.977151Z[0m [34mDEBUG[0m [2mrustom8::steps::shell[0m[2m:[0m Raw shell command: "echo 'Hello from rustom8'"
+[2m2025-06-05T14:09:13.985005Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set_step_output #1 -> {"Shell":{"command":"echo 'Hello from rustom8'","status":0,"stderr":"","stdout":"Hello from rustom8\n"}}
+[2m2025-06-05T14:09:13.985144Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN STEP: 2
+[2m2025-06-05T14:09:13.985298Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> {"Wait":{"completed":false,"duration":3000}}
+[2m2025-06-05T14:09:16.990483Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #2 -> {"Wait":{"completed":false,"duration":3000}}
+[2m2025-06-05T14:09:16.990815Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN STEP: 3
+[2m2025-06-05T14:09:16.991245Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "That's it! Waited for {{steps.3.output.Wait.duration}}"
+[2m2025-06-05T14:09:16.991546Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("3"), Named("output"), Named("Wait"), Named("duration")], "steps.3.output.Wait.duration")))    
+[2m2025-06-05T14:09:16.991701Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #3 -> {"Print":{"message":"That's it! Waited for "}}
+[2m2025-06-05T14:09:16.991789Z[0m [34mDEBUG[0m [2mrustom8::engine[0m[2m:[0m RUN STEP: 4
+[2m2025-06-05T14:09:16.991893Z[0m [34mDEBUG[0m [2mrustom8::steps::print[0m[2m:[0m Raw print command: "Previously, I printed: {{{steps.2.output.Print.message}}}. Hurray!!"
+[2m2025-06-05T14:09:16.992139Z[0m [34mDEBUG[0m [2mhandlebars::render[0m[2m:[0m Rendering value: Path(Relative(([Named("steps"), Named("2"), Named("output"), Named("Print"), Named("message")], "steps.2.output.Print.message")))    
+[2m2025-06-05T14:09:16.992277Z[0m [34mDEBUG[0m [2mrustom8::context[0m[2m:[0m Context::set #4 -> {"Print":{"message":"Previously, I printed: . Hurray!!"}}

@@ -3,10 +3,10 @@ use tracing::debug;
 use crate::steps::print::PrintStep;
 use crate::steps::shell::ShellStep;
 use crate::steps::wait::WaitStep;
-use crate::types::{Workflow, StepKind, Step, Context, StepExcecutor};
+use crate::types::{Workflow, StepKind, Step, Context, StepExecutor};
 
 pub fn run_workflow(wf: Workflow) {
-    debug!("Running workflow {}", wf.name);
+    debug!("RUN WORKFLOW: {}", wf.name);
     
     let mut ctx = Context{
         steps: HashMap::new(),
@@ -21,7 +21,7 @@ pub fn run_workflow(wf: Workflow) {
 
 fn run_step(step_id: u16, step: &Step, ctx: &mut Context) {
     
-    debug!("Running step {}", step_id);
+    debug!("RUN STEP: {}", step_id);
     
     match &step.kind {
         StepKind::Print { .. } => PrintStep.execute(step_id, step, ctx).expect("Print step panicked"),

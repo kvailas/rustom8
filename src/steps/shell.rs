@@ -1,11 +1,11 @@
 use anyhow::anyhow;
 use tracing::{debug, error};
 use crate::context::render_template;
-use crate::types::{Context, ShellOutput, Step, StepExcecutor, StepKind, StepOutput};
+use crate::types::{Context, ShellOutput, Step, StepExecutor, StepKind, StepOutput};
 
 pub struct ShellStep;
 
-impl StepExcecutor for ShellStep {
+impl StepExecutor for ShellStep {
     fn execute(&self, step_id: u16, step: &Step, ctx: &mut Context) -> anyhow::Result<()> {
         if let StepKind::Shell { command } = &step.kind {
             debug!("Raw shell command: {:?}", command);

@@ -31,7 +31,7 @@ pub enum StepKind {
     // Future: Http { url: String, method: String, ... }
 }
 
-pub trait StepExcecutor {
+pub trait StepExecutor {
     fn execute(&self, step_id: u16, step: &Step, ctx: &mut Context) -> Result<()>;
 }
 

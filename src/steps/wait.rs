@@ -3,11 +3,11 @@ use std::time::Duration;
 use anyhow::anyhow;
 use tracing::error;
 use crate::context::render_template;
-use crate::types::{Context, Step, StepExcecutor, StepKind, StepOutput, WaitOutput};
+use crate::types::{Context, Step, StepExecutor, StepKind, StepOutput, WaitOutput};
 
 pub struct WaitStep;
 
-impl StepExcecutor for WaitStep {
+impl StepExecutor for WaitStep {
     fn execute(&self, step_id: u16, step: &Step, ctx: &mut Context) -> anyhow::Result<()> {
         if let StepKind::Wait { duration_ms } = &step.kind {
             let duration = String::from(duration_ms.to_string());
