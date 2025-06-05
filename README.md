@@ -64,11 +64,11 @@ duration_ms = 3000
 
 [[steps]]
 type = "Print"
-message = "That's it! Waited for {{steps.3.output.Wait.duration}}"
+message = "That's it! Waited for {{steps.2.output.Wait.duration}}"
 
 [[steps]]
 type = "Print"
-message = "Previously, I printed: {{{steps.2.output.Print.message}}}. Hurray!!"
+message = "Previously, I printed: {{{steps.3.output.Print.message}}}. Hurray!!"
 
 
 ```
