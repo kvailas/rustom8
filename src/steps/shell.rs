@@ -1,4 +1,5 @@
 use anyhow::anyhow;
+use tracing::{debug, error};
 use crate::context::render_template;
 use crate::types::{Context, ShellOutput, Step, StepExcecutor, StepKind, StepOutput};
 
@@ -7,14 +8,11 @@ pub struct ShellStep;
 impl StepExcecutor for ShellStep {
     fn execute(&self, step_id: u16, step: &Step, ctx: &mut Context) -> anyhow::Result<()> {
         if let StepKind::Shell { command } = &step.kind {
-            
-            // todo: log original command (debug)
+            debug!("Raw shell command: {:?}", command);
             
             let rendered_command = render_template(command, ctx).expect("Invalid shell step template");
             
-            // todo: log rendered command (debug)
-            
-            let output = std::process::Command::new("sh")
+            let runtime_output = std::process::Command::new("sh")
                 .arg("-c")
                 .arg(command)
                 .output()
@@ -22,9 +20,9 @@ impl StepExcecutor for ShellStep {
             
             let mut output = StepOutput::Shell(ShellOutput {
                 command: rendered_command,
-                stdout: String::from_utf8_lossy(&output.stdout).to_string(),
-                stderr: String::from_utf8_lossy(&output.stderr).to_string(),
-                status: output.status.code().unwrap_or(-1),
+                stdout: String::from_utf8_lossy(&runtime_output.stdout).to_string(),
+                stderr: String::from_utf8_lossy(&runtime_output.stderr).to_string(),
+                status: runtime_output.status.code().unwrap_or(-1),
             });
             
             ctx.set_step_output(
@@ -34,7 +32,7 @@ impl StepExcecutor for ShellStep {
             
             Ok(())
         } else {
-            // todo: log failure details (error)
+            error!("Shell step is invalid. Invalid step kind.");
             
             Err(anyhow!("Invalid Shell step kind"))
         }

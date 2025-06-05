@@ -26,7 +26,7 @@ enum Commands {
 fn main() {
     // Initialize app logger:
     logger::init_logger().expect("Failed to initialize logger");
-    
+
     // Initialize the cli instance:
     let cli = Cli::parse();
 

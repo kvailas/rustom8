@@ -1,5 +1,6 @@
 use handlebars::Handlebars;
 use once_cell::sync::Lazy;
+use tracing::debug;
 use crate::types::{Context, StepContext, StepOutput};
 
 pub static HANDLEBARS: Lazy<Handlebars<'static>> = Lazy::new(|| {
@@ -18,6 +19,11 @@ pub fn render_template(input: &str, ctx: &Context) -> anyhow::Result<String> {
 impl Context {
     pub fn set(&mut self, step_id: u16, output: &mut StepOutput) {
         self.steps.insert(step_id, StepContext { output: output.clone() });
+        
+        debug!("Context::set #{} -> {}", 
+            step_id,
+            serde_json::to_value(&output).expect("Failed to serialize step output")
+        );
     }
     
     // pub fn get(&mut self, step_id: u16) -> StepContext {
@@ -26,5 +32,10 @@ impl Context {
 
     pub fn set_step_output(&mut self, step_id: u16, output: &mut StepOutput) {
         self.steps.insert(step_id, StepContext { output: output.clone() });
+        
+        debug!("Context::set_step_output #{} -> {}", 
+            step_id, 
+            serde_json::to_value(&output).expect("Failed to serialize step output")
+        );
     }
 }

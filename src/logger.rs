@@ -1,25 +1,27 @@
-use tracing::Level;
-use tracing_subscriber::fmt::writer::BoxMakeWriter;
-use tracing_subscriber::fmt::SubscriberBuilder;
-use tracing_subscriber::EnvFilter;
 use std::fs::OpenOptions;
+use std::io::{BufWriter, Write};
+use tracing::Level;
+// use tracing_subscriber::EnvFilter;
+use tracing_subscriber::fmt::SubscriberBuilder;
+use tracing_subscriber::fmt::writer::BoxMakeWriter;
 
-// Add other log artifacts here as well 
 pub fn init_logger() -> anyhow::Result<()> {
-    let log_file = OpenOptions::new()
-        .create(true)
-        .append(true)
-        .open("rustom8.log")?;
+    let make_writer = BoxMakeWriter::new(|| {
+        let file = OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open("rustom8.log")
+            .expect("Failed to open log file");
 
-    let file_writer = BoxMakeWriter::new(log_file);
+        Box::new(BufWriter::new(file)) as Box<dyn Write + Send>
+    });
 
     SubscriberBuilder::default()
         .with_max_level(Level::DEBUG)
-        .with_writer(file_writer)
-        .with_env_filter(EnvFilter::from_default_env()) // allow RUST_LOG override
+        .with_writer(make_writer)
+        .with_env_filter("debug")
+        // .with_env_filter(EnvFilter::from_default_env()) // set RUST_LOG=debug, etc.
         .init();
 
     Ok(())
 }
-
-// todo: Add a macro / trait / static fn -> to log in a single line (ex. crate::logger::log(..)

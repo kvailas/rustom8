@@ -1,6 +1,7 @@
 use std::thread;
 use std::time::Duration;
 use anyhow::anyhow;
+use tracing::error;
 use crate::context::render_template;
 use crate::types::{Context, Step, StepExcecutor, StepKind, StepOutput, WaitOutput};
 
@@ -29,7 +30,7 @@ impl StepExcecutor for WaitStep {
 
             Ok(())
         } else {
-            // todo: log failure details (error)
+            error!("Wait step is invalid. Invalid step kind.");
 
             Err(anyhow!("Invalid Wait step kind"))
         }

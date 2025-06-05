@@ -1,11 +1,12 @@
 use std::collections::HashMap;
+use tracing::debug;
 use crate::steps::print::PrintStep;
 use crate::steps::shell::ShellStep;
 use crate::steps::wait::WaitStep;
 use crate::types::{Workflow, StepKind, Step, Context, StepExcecutor};
 
 pub fn run_workflow(wf: Workflow) {
-    println!("==> Running workflow: {}\n", wf.name);
+    debug!("Running workflow {}", wf.name);
     
     let mut ctx = Context{
         steps: HashMap::new(),
@@ -19,6 +20,9 @@ pub fn run_workflow(wf: Workflow) {
 
 
 fn run_step(step_id: u16, step: &Step, ctx: &mut Context) {
+    
+    debug!("Running step {}", step_id);
+    
     match &step.kind {
         StepKind::Print { .. } => PrintStep.execute(step_id, step, ctx).expect("Print step panicked"),
         StepKind::Wait { .. } => WaitStep.execute(step_id, step, ctx).expect("Wait step panicked"),
