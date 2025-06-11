@@ -1,13 +1,10 @@
-mod parser;
-mod types;
-mod engine;
-mod context;
-mod logger;
 mod steps;
+mod core;
 
+use core::logger;
 use clap::{Parser as ClapParser, Subcommand};
-use parser::load_workflow;
-use engine::run_workflow;
+use core::parser::load_workflow;
+use core::engine::run_workflow;
 
 #[derive(ClapParser)]
 #[command(name = "rustom8", version = "0.02", about = "A tiny rust workflow engine")]

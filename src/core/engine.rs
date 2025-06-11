@@ -3,7 +3,7 @@ use tracing::debug;
 use crate::steps::print::PrintStep;
 use crate::steps::shell::ShellStep;
 use crate::steps::wait::WaitStep;
-use crate::types::{Workflow, StepKind, Step, Context, StepExecutor};
+use crate::core::types::{Workflow, StepKind, Step, Context, StepExecutor};
 
 pub fn run_workflow(wf: Workflow) {
     debug!("RUN WORKFLOW: {}", wf.name);

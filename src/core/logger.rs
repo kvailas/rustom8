@@ -10,7 +10,7 @@ pub fn init_logger() -> anyhow::Result<()> {
         let file = OpenOptions::new()
             .create(true)
             .append(true)
-            .open("rustom8.log")
+            .open("../../rustom8.log")
             .expect("Failed to open log file");
 
         Box::new(BufWriter::new(file)) as Box<dyn Write + Send>

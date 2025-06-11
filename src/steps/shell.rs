@@ -1,7 +1,7 @@
 use anyhow::anyhow;
 use tracing::{debug, error};
-use crate::context::render_template;
-use crate::types::{Context, ShellOutput, Step, StepExecutor, StepKind, StepOutput};
+use crate::core::context::render_template;
+use crate::core::types::{Context, ShellOutput, Step, StepExecutor, StepKind, StepOutput};
 
 pub struct ShellStep;
 

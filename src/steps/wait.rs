@@ -2,8 +2,8 @@ use std::thread;
 use std::time::Duration;
 use anyhow::anyhow;
 use tracing::error;
-use crate::context::render_template;
-use crate::types::{Context, Step, StepExecutor, StepKind, StepOutput, WaitOutput};
+use crate::core::context::render_template;
+use crate::core::types::{Context, Step, StepExecutor, StepKind, StepOutput, WaitOutput};
 
 pub struct WaitStep;
 
