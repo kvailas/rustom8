@@ -1,7 +1,7 @@
 use std::thread;
 use std::time::Duration;
 use anyhow::anyhow;
-use tracing::error;
+use tracing::{error};
 use crate::core::context::render_template;
 use crate::core::types::{Context, Step, StepExecutor, StepKind, StepOutput, WaitOutput};
 
@@ -12,22 +12,19 @@ impl StepExecutor for WaitStep {
         if let StepKind::Wait { duration_ms } = &step.kind {
             let duration = String::from(duration_ms.to_string());
             let mut step_output = StepOutput::Wait(WaitOutput { duration: duration_ms.clone(), completed: false });
-
-            // todo: log original duration set (debug)
-
+            
             let duration_ms: u64 = render_template(&duration, ctx).expect("Invalid wait step template")
                 .parse::<u64>().expect("Failed to parse duration number from renderer");
-
-            // todo: log wit step initiated (info)
 
             ctx.set(step_id, &mut step_output);
 
             thread::sleep(Duration::from_millis(duration_ms));
-            
+
+            if let StepOutput::Wait(step_output) = &mut step_output {
+                step_output.completed = true;
+            }
             ctx.set(step_id, &mut step_output);
-
-            // todo: log finished (info)
-
+            
             Ok(())
         } else {
             error!("Wait step is invalid. Invalid step kind.");

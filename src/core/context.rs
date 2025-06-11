@@ -17,17 +17,18 @@ pub fn render_template(input: &str, ctx: &Context) -> anyhow::Result<String> {
     Ok(rendered)
 }
 
+
 impl Context {
     pub fn new() -> Self {
         Context {
             steps: HashMap::new()
         }
     }
-    
+
     pub fn set(&mut self, step_id: u16, output: &mut StepOutput) {
         self.steps.insert(step_id, StepContext { output: output.clone() });
         
-        debug!("Context::set #{} -> {}", 
+        debug!("Context::set #{} -> {}",
             step_id,
             serde_json::to_value(&output).expect("Failed to serialize step output")
         );
@@ -64,7 +65,7 @@ mod tests {
     fn test_render_with_variable() {
         let mut ctx = Context::new();
         ctx.set_step_output(
-            1, 
+            1,
             &mut StepOutput::Print(PrintOutput{message: "Hello!".to_string()})
         );
         let out = render_template("{{steps.1.output.Print.message}}", &ctx).unwrap();

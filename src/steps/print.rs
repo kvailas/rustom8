@@ -1,4 +1,4 @@
-use tracing::{debug, error};
+use tracing::{debug, error, info};
 use crate::core::context::render_template;
 use crate::core::types::{Context, PrintOutput, Step, StepExecutor, StepKind, StepOutput};
 
@@ -8,7 +8,7 @@ impl StepExecutor for PrintStep {
     fn execute(&self, step_id: u16, step: &Step, ctx: &mut Context) -> anyhow::Result<()> {
         if let StepKind::Print { message } = &step.kind {
             
-            debug!("Raw print command: {:?}", message);
+            info!("Raw print command: {:?}", message);
             
             let rendered_message = render_template(message, ctx)
                 .expect("Invalid print step template");

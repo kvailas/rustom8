@@ -1,5 +1,5 @@
 use anyhow::anyhow;
-use tracing::{debug, error};
+use tracing::{debug, error, info};
 use crate::core::context::render_template;
 use crate::core::types::{Context, ShellOutput, Step, StepExecutor, StepKind, StepOutput};
 
@@ -8,7 +8,7 @@ pub struct ShellStep;
 impl StepExecutor for ShellStep {
     fn execute(&self, step_id: u16, step: &Step, ctx: &mut Context) -> anyhow::Result<()> {
         if let StepKind::Shell { command } = &step.kind {
-            debug!("Raw shell command: {:?}", command);
+            info!("Raw shell command: {:?}", command);
             
             let rendered_command = render_template(command, ctx).expect("Invalid shell step template");
             
