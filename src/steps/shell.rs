@@ -25,7 +25,7 @@ impl StepExecutor for ShellStep {
                 status: runtime_output.status.code().unwrap_or(-1),
             });
             
-            ctx.set_step_output(
+            ctx.set(
                 step_id,
                 &mut output
             );

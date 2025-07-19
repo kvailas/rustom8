@@ -37,15 +37,6 @@ impl Context {
     // pub fn get(&mut self, step_id: u16) -> StepContext {
     //     self.steps.get(&step_id).unwrap().clone()
     // }
-
-    pub fn set_step_output(&mut self, step_id: u16, output: &mut StepOutput) {
-        self.steps.insert(step_id, StepContext { output: output.clone() });
-        
-        debug!("Context::set_step_output #{} -> {}", 
-            step_id, 
-            serde_json::to_value(&output).expect("Failed to serialize step output")
-        );
-    }
 }
 
 #[cfg(test)]
@@ -64,7 +55,7 @@ mod tests {
     #[test]
     fn test_render_with_variable() {
         let mut ctx = Context::new();
-        ctx.set_step_output(
+        ctx.set(
             1,
             &mut StepOutput::Print(PrintOutput{message: "Hello!".to_string()})
         );
@@ -75,11 +66,11 @@ mod tests {
     #[test]
     fn test_set_context_output() {
         let mut ctx = Context::new();
-        ctx.set_step_output(
+        ctx.set(
             1,
             &mut StepOutput::Print(PrintOutput{message: "Hello 1!".to_string()})
         );
-        ctx.set_step_output(
+        ctx.set(
             2,
             &mut StepOutput::Print(PrintOutput{message: "Hello 2!".to_string()})
         );
