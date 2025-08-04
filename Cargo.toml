@@ -9,7 +9,7 @@ authors = [
 rust-version = "1.80.0"
 
 [dependencies]
-clap = { version = "4.5.39", features = ["derive"] }
+clap = { version = "4.5.42", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }
 toml = "0.8"
 anyhow = "1.0.98"
